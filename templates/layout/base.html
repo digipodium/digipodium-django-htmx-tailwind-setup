@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Digipodium</title>
+    {% endif %}
+
+    <!-- daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="{% static 'js/htmx.min.js' %}" defer></script>
+    <script src="{% static 'js/htmx-debug.js' %}" defer></script>
+    {% block head %}{% endblock %}
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        {% include 'components/header.html' %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        {% include 'components/footer.html' %}
+    </footer>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    {% block js %}{% endblock %}
+</body>
+
+</html>
